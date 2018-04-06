@@ -27,7 +27,7 @@ public class UserTest {
         logger.info("Before");
         //加载MyBatis配置文件
         Reader reader = Resources.getResourceAsReader(resource);
-        //构建SqlSession工厂
+        //构建SqlSession工厂logger.info("commit");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         //创建执行sql的session
         session = factory.openSession();
@@ -88,7 +88,7 @@ public class UserTest {
     @Test
     public void insertUser(){
         UserMapper mapper = session.getMapper(UserMapper.class);
-        int insert = mapper.insertUser(new User("cxl", 16, 0));
+        int insert = mapper.insertUser(new User("cy", 16, 0));
         if(insert > 0){
             session.commit();
             logger.info("commit");

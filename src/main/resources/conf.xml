@@ -21,6 +21,6 @@
         <!--xml文件配置mapper-->
         <mapper resource="qpf/com/orm/UserMapper_.xml"/>
         <!--注解形式配置mapper接口-->
-        <!--<mapper class="qpf.com.orm.UserMapper"/>-->
+        <mapper class="qpf.com.orm.UserMapper"/>
     </mappers>
 </configuration>
