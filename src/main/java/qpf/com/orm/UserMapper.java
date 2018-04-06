@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
-
 public interface UserMapper {
     @Insert("insert into user(name, age, gender) values(#{name}, #{age}, #{gender})")
     public int insertUser(User user);

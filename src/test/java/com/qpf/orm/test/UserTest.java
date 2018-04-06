@@ -38,6 +38,13 @@ public class UserTest {
         //关闭session
         session.close();
     }
+    @Test
+    public void selectAllUser_(){
+        List<User> users = session.selectList("com.qpf.orm.UserMapper_" + ".selectAllUser_");
+        for (User user : users){
+            logger.info(user);
+        }
+    }
 
     @Test
     public void selectAllUser(){
