@@ -8,14 +8,14 @@
 
 <meta charset="UTF-8">
 
-<title>Index</title>
+<title>Success</title>
 
 </head>
 
 <body>
 
-	<h1 style="text-align: center">首页</h1>
-	<h2><a href="/SSMDemo/redirect">validate test</a></h2>
+	<h1>跳转成功</h1>
+
 </body>
 
 </html>

@@ -24,7 +24,7 @@
     </bean>
     <!-- Mapper接口 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.qpf.dao"/>
+        <property name="basePackage" value="com.qpf.orm"/>
         <!-- sqlSessionFactory 这个属性会影响读取数据源配置文件db.properties -->
         <!-- <property name="sqlSessionFactory" ref="sqlSessionFactory"/> -->
     </bean>
