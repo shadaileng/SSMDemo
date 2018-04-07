@@ -1,6 +1,8 @@
 package com.qpf.orm.test;
 
 import com.qpf.model.User;
+import com.qpf.orm.UserMapper;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -9,7 +11,6 @@ import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import qpf.com.orm.UserMapper;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -37,6 +38,12 @@ public class UserTest {
         logger.info("After");
         //关闭session
         session.close();
+    }
+    @Test
+    public void selectUser_(){
+        User user = session.selectOne("com.qpf.dao.UserMapper_" + ".selectUserById_", 1);
+        logger.info(user);
+        logger.info(session.selectList("com.qpf.dao.UserMapper_" + ".selectAllUser_"));
     }
     @Test
     public void selectAllUser_(){

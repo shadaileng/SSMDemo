@@ -1,5 +1,4 @@
 package com.qpf.model;
-
 public class User {
     private int id;
     private String name;

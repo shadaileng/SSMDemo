@@ -1,4 +1,4 @@
-package qpf.com.orm;
+package com.qpf.orm;
 
 import com.qpf.model.User;
 import org.apache.ibatis.annotations.Delete;

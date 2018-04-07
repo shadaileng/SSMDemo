@@ -4,23 +4,37 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+    <!-- spring 组件扫描 -->
+    <context:component-scan base-package="com.qpf.*" />
+    <!-- 数据源配置 -->
     <context:property-placeholder location="classpath:db.properties"/>
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${sqlite.driverClassName}"/>
-        <property name="url" value="${sqlite.url}"/>
-        <property name="username" value="${sqlite.username}"/>
-        <property name="password" value="${sqlite.password}"/>
+    <!-- C3P0数据源 -->
+    <bean id="dataSource"  class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${sqlite.driverClassName}"/>
+        <property name="jdbcUrl" value="${sqlite.url}"/>
+        <property name="user" value=""/>
+        <property name="password" value=""/>
+		<property name="initialPoolSize" value="${sqlite.initialPoolSize}"/>
+        <property name="maxPoolSize" value="${sqlite.maxPoolSize}"/>
     </bean>
+    <!-- SqlSessionFactort -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations" value="classpath:com/qpf/orm/*.xml"/>
+        <property name="mapperLocations" value="classpath*:com/qpf/orm/*.xml"/>
     </bean>
+    <!-- Mapper接口 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.qpf.orm"/>
-        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+        <property name="basePackage" value="com.qpf.dao"/>
+        <!-- sqlSessionFactory 这个属性会影响读取数据源配置文件db.properties -->
+        <!-- <property name="sqlSessionFactory" ref="sqlSessionFactory"/> -->
+    </bean>
+    <!-- 
+    <tx:annotation-driven />
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
     </bean>
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-    <tx:annotation-driven />
+     -->
 </beans>
