@@ -27,8 +27,8 @@
 			<a href="/" class="uk-navbar-brand">Shadaileng</a>
 			<ul class="uk-navbar-nav">
 				<li data-url="blogs"><a href="/"><i class="uk-icon-home"></i>日志</a></li>
-				<li target="_blank" href="#"><a href="/"><i class="uk-icon-book"></i>教程</a></li>
-				<li target="_blank" href="#"><a href="/"><i class="uk-icon-code"></i>源码</a></li>
+				<li ><a target="_blank" href="/"><i class="uk-icon-book"></i>教程</a></li>
+				<li ><a target="_blank" href="/"><i class="uk-icon-code"></i>源码</a></li>
 			</ul>
 			<div class="uk-navbar-flip">
 				<ul class="uk-navbar-nav">
