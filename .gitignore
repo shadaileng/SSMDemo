@@ -3,7 +3,7 @@
 .idea/
 .svn/
 *.iml
-#.settings/
+.settings/
 .classpath
 .project
 /lib/
