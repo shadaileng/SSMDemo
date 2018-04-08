@@ -12,5 +12,10 @@
 		<property name="prefix" value="/WEB-INF/page/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
+	<mvc:annotation-driven/>
+	<mvc:resources mapping="/static/css/**" location="/WEB-INF/static/css/"/>
+	<mvc:resources mapping="/static/js/**" location="/WEB-INF/static/js/"/>
+	<mvc:resources mapping="/static/img/**" location="/WEB-INF/static/img/"/>
+	<mvc:resources mapping="/static/fonts/**" location="/WEB-INF/static/fonts/"/>
 
 </beans>
