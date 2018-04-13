@@ -2,8 +2,11 @@ package com.qpf.orm.test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
+import com.qpf.model.User;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,5 +35,10 @@ public class SMTest {
 	public void selectAllUser() {
 //		User user = userService.getUser(1);
 		logger.info(userService.getAllUser());
+	}
+
+	@Test
+	public void insertUser(){
+		logger.info(userService.insertUser(new User("shadaileng", 26, 1, "199248", "qpf0510@qq.com", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()))));
 	}
 }

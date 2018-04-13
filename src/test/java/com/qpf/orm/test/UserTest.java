@@ -72,7 +72,7 @@ public class UserTest {
     @Test
     public void updateUser(){
         UserMapper mapper = session.getMapper(UserMapper.class);
-        int update = mapper.updateUser(new User(1, "qpf", 17, 1));
+        int update = mapper.updateUser(new User(1));
         if(update > 0){
             session.commit();
             logger.info("commit");
@@ -95,7 +95,7 @@ public class UserTest {
     @Test
     public void insertUser(){
         UserMapper mapper = session.getMapper(UserMapper.class);
-        int insert = mapper.insertUser(new User("cy", 16, 0));
+        int insert = mapper.insertUser(new User());
         if(insert > 0){
             session.commit();
             logger.info("commit");

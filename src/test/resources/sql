@@ -1,0 +1,15 @@
+-- 表：user
+CREATE TABLE user (
+    id          INTEGER      PRIMARY KEY AUTOINCREMENT
+                             NOT NULL
+                             UNIQUE,
+    name        VARCHAR (15) NOT NULL,
+    age         INTEGER (3)  NOT NULL,
+    gender      INTEGER (1)  NOT NULL,
+    password    VARCHAR (50) NOT NULL,
+    email       VARCHAR (50) NOT NULL,
+    heading                  NOT NULL
+                             DEFAULT ('static/img/user.png'),
+    create_time VARCHAR (50) NOT NULL,
+    update_time VARCHAR (50)
+);

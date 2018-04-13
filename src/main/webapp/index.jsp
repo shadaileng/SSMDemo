@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
@@ -32,8 +33,16 @@
 			</ul>
 			<div class="uk-navbar-flip">
 				<ul class="uk-navbar-nav">
-					<li><a href="/login"><i class="uk-icon-sign-in"></i>登陆</a></li>
-					<li><a href="/register"><i class="uk-icon-edit"></i>注册</a></li>
+                    <c:choose>
+                        <c:when test="${requestScope.__user__}">
+                            <li><a href="${pageContext.request.contextPath }/redirect/logout"><i class="uk-icon-sign-out"></i>登出</a></li>
+                            <li><a href="${pageContext.request.contextPath }/redirect/blogs"><i class="uk-icon-edit"></i>日志</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${pageContext.request.contextPath }/redirect/login"><i class="uk-icon-sign-in"></i>登陆</a></li>
+                            <li><a href="${pageContext.request.contextPath }/redirect/register"><i class="uk-icon-edit"></i>注册</a></li>
+                        </c:otherwise>
+                    </c:choose>
 				</ul>
 			</div>
 		</div>

@@ -4,8 +4,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,7 +17,14 @@ import com.qpf.model.User;
 
 @Controller
 public class HelloContriller {
-	
+	private Logger logger = Logger.getLogger(getClass());
+	@RequestMapping("/redirect/register")
+	public String register(){
+		String res = "register";
+		logger.info("redirect to regiest");
+		return res;
+	}
+
 	@RequestMapping("/redirect")
 	public String redirect() {
 		System.out.println("Success");
@@ -58,7 +67,7 @@ public class HelloContriller {
 		map.put("001", 1);
 		map.put("002", "2");
 		map.put("003", new String[]{"3", "4", "5"});
-		map.put("004", Arrays.asList(new User[]{new User(1, "a", 21, 1), new User(1, "b", 22, 0)}));
+//		map.put("004", Arrays.asList(new User[]{new User(1, "a", 21, 1), new User(1, "b", 22, 0)}));
 		
 		return map;
 	}
